@@ -6,10 +6,10 @@ public class Main {
     }
 
     public static boolean shouldWakeUp(boolean isBarking, int clock) {
-        if (isBarking && (clock>20 || clock<8)) {
-            return true;
-        } else if (clock<0) {
+        if (clock<0 || clock>23) {
             return false;
+        } else if (isBarking && (clock>20 || clock<8)) {
+            return true;
         } else {
             return false;
         }
@@ -32,10 +32,20 @@ public class Main {
     }
 
     public static double area(double width, double height) {
-
+        double result = width*height;
+        if (width<0 || height<0) {
+            return -1;
+        } else {
+            return result;
+        }
     }
 
     public static double area(double radius) {
-
+        double result = radius*radius*Math.PI;
+        if (radius<0) {
+            return -1;
+        } else {
+            return result;
+        }
     }
 }
